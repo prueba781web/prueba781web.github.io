@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Libro - Releo</title>
+    <meta name="description" content="Información detallada del libro seleccionado">
+    
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/book-detail.css">
+</head>
+<body>
+    <!-- Header (igual que en index.html) -->
+    <header class="header">
+        <!-- ... mismo header que en index.html ... -->
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Detalle del Libro</h1>
+            <p>Información detallada del libro seleccionado</p>
+        </div>
+    </section>
+
+    <!-- Book Detail Content -->
+    <section class="book-detail-content">
+        <div class="container">
+            <div class="book-detail-container" id="book-detail-container">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Cargando información del libro...</p>
+                </div>
+            </div>
+            
+            <div class="related-books">
+                <h2>Libros relacionados</h2>
+                <div class="related-books-grid" id="related-books-container">
+                    <!-- Los libros relacionados se cargarán dinámicamente aquí -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (igual que en index.html) -->
+    <footer class="footer">
+        <!-- ... mismo footer que en index.html ... -->
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <div class="floating-btn whatsapp-float">
+        <a href="https://wa.me/34600123456" aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Botón flotante para volver arriba -->
+    <div class="floating-btn back-to-top">
+        <a href="#" aria-label="Volver arriba">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <!-- Notificación Toast -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="toast-message">Libro guardado correctamente</span>
+        </div>
+        <button class="toast-close" aria-label="Cerrar notificación">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/book-detail.js"></script>
+</body>
+</html>
