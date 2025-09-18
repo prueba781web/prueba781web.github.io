@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Libro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .volver {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .volver:hover {
+            opacity: 0.8;
+        }
+        
+        .volver i {
+            margin-right: 8px;
+        }
+        
+        .detalle-libro {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            margin: 30px 0;
+        }
+        
+        .libro-imagenes {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            background-color: #f8f9fa;
+        }
+        
+        .imagen-principal {
+            width: 100%;
+            height: 400px;
+            background-color: #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .imagen-principal img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .imagen-principal i {
+            font-size: 80px;
+            color: #ccc;
+        }
+        
+        .imagenes-adicionales {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .imagen-mini {
+            width: 80px;
+            height: 100px;
+            background-color: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .imagen-mini:hover {
+            transform: scale(1.05);
+        }
+        
+        .imagen-mini img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .libro-info {
+            flex: 2;
+            min-width: 300px;
+            padding: 30px;
+        }
+        
+        .libro-titulo {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .libro-autor {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .libro-precio {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .libro-estado {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        
+        .estado-nuevo {
+            background-color: rgba(46, 204, 113, 0.1);
+            color: var(--success-color);
+        }
+        
+        .estado-bueno {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--secondary-color);
+        }
+        
+        .estado-aceptable {
+            background-color: rgba(243, 156, 18, 0.1);
+            color: var(--warning-color);
+        }
+        
+        .estado-deteriorado {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: var(--accent-color);
+        }
+        
+        .libro-accion {
+            margin: 30px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-right: 15px;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-secundario {
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .btn-secundario:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+        
+        .libro-detalles {
+            margin-top: 30px;
+        }
+        
+        .detalle-seccion {
+            margin-bottom: 25px;
+        }
+        
+        .detalle-seccion h3 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .detalle-seccion p {
+            margin-bottom: 8px;
+        }
+        
+        .detalle-seccion .etiqueta {
+            font-weight: 600;
+            color: var(--dark-color);
+            display: inline-block;
+            width: 150px;
+        }
+        
+        .sinopsis {
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .caracteristicas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .caracteristica {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--secondary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+            color: #666;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .detalle-libro {
+                flex-direction: column;
+            }
+            
+            .libro-imagenes {
+                padding: 20px;
+            }
+            
+            .libro-info {
+                padding: 20px;
+            }
+            
+            .libro-titulo {
+                font-size: 24px;
+            }
+            
+            .libro-precio {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Mi Catálogo de Libros</div>
+                <a href="index.html" class="volver">
+                    <i class="fas fa-arrow-left"></i> Volver al catálogo
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="detalle-libro" class="detalle-libro">
+            <div class="loading">Cargando detalles del libro...</div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre nosotros</h3>
+                    <p>Catálogo de libros especializado en ediciones únicas y raros. Nuestra misión es conectar a los lectores con obras especiales.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Catálogo</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@mi-catalogo.com</li>
+                        <li><i class="fas fa-phone"></i> +34 900 123 456</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Madrid, España</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Mi Catálogo de Libros. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Reemplaza esta URL con la de tu aplicación web de Apps Script
+        const API_URL = "https://script.google.com/macros/s/AKfycbzK4s65S7Vz3Dsis8AY3_ooHwuXCo--JZI1qxAC0-RJZ4yXwKbh1Wp-CRC1fMClWRk0/exec";
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            
+            if (id) {
+                cargarDetalleLibro(id);
+            } else {
+                mostrarError('No se especificó un libro.');
+            }
+        });
+        
+        function cargarDetalleLibro(id) {
+            fetch(`${API_URL}/detalle?id=${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        mostrarError(data.error);
+                    } else {
+                        mostrarDetalleLibro(data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al cargar los detalles:', error);
+                    mostrarError('Error al cargar los detalles del libro. Inténtalo de nuevo más tarde.');
+                });
+        }
+        
+        function mostrarDetalleLibro(libro) {
+            const detalleDiv = document.getElementById('detalle-libro');
+            
+            // Determinar clase CSS para el estado
+            let estadoClass = 'estado-bueno'; // por defecto
+            const estadoLower = libro['Estado general'].toLowerCase();
+            
+            if (estadoLower.includes('nuevo')) estadoClass = 'estado-nuevo';
+            else if (estadoLower.includes('muy bueno')) estadoClass = 'estado-bueno';
+            else if (estadoLower.includes('bueno')) estadoClass = 'estado-bueno';
+            else if (estadoLower.includes('aceptable')) estadoClass = 'estado-aceptable';
+            else if (estadoLower.includes('deteriorado')) estadoClass = 'estado-deteriorado';
+            
+            // Preparar imágenes
+            let imagenPrincipalHtml = '';
+            if (libro['Foto 1'] && libro['Foto 1'].trim() !== '') {
+                imagenPrincipalHtml = `<img src="${libro['Foto 1']}" alt="${libro['Título']}">`;
+            } else {
+                imagenPrincipalHtml = '<i class="fas fa-book"></i>';
+            }
+            
+            let imagenesAdicionalesHtml = '';
+            if (libro['Foto 2'] && libro['Foto 2'].trim() !== '') {
+                imagenesAdicionalesHtml += `
+                    <div class="imagen-mini">
+                        <img src="${libro['Foto 2']}" alt="${libro['Título']}">
+                    </div>
+                `;
+            }
+            
+            if (libro['Foto 3'] && libro['Foto 3'].trim() !== '') {
+                imagenesAdicionalesHtml += `
+                    <div class="imagen-mini">
+                        <img src="${libro['Foto 3']}" alt="${libro['Título']}">
+                    </div>
+                `;
+            }
+            
+            // Preparar características destacadas
+            let caracteristicasHtml = '';
+            if (libro['Características destacadas'] && libro['Características destacadas'].trim() !== '') {
+                const caracteristicas = libro['Características destacadas'].split(',');
+                caracteristicasHtml = '<div class="caracteristicas">';
+                caracteristicas.forEach(caracteristica => {
+                    caracteristicasHtml += `<span class="caracteristica">${caracteristica.trim()}</span>`;
+                });
+                caracteristicasHtml += '</div>';
+            }
+            
+            // Formatear disponibilidad
+            const disponibilidadHtml = libro['Disponibilidad para envío inmediato'] === 'sí' ? 
+                '<i class="fas fa-check-circle" style="color: var(--success-color);"></i> Disponible para envío inmediato' : 
+                '<i class="fas fa-times-circle" style="color: var(--accent-color);"></i> No disponible para envío inmediato';
+            
+            detalleDiv.innerHTML = `
+                <div class="libro-imagenes">
+                    <div class="imagen-principal">
+                        ${imagenPrincipalHtml}
+                    </div>
+                    ${imagenesAdicionalesHtml ? `<div class="imagenes-adicionales">${imagenesAdicionalesHtml}</div>` : ''}
+                </div>
+                
+                <div class="libro-info">
+                    <h1 class="libro-titulo">${libro['Título']}</h1>
+                    <div class="libro-autor">${libro['Autor']}</div>
+                    <div class="libro-precio">€${libro['Precio de venta']}</div>
+                    <div class="libro-estado ${estadoClass}">${libro['Estado general']}</div>
+                    
+                    <div class="libro-accion">
+                        <button class="btn">Comprar ahora</button>
+                        <button class="btn btn-secundario">Añadir a la cesta</button>
+                    </div>
+                    
+                    <div class="libro-detalles">
+                        <div class="detalle-seccion">
+                            <h3>Información básica</h3>
+                            <p><span class="etiqueta">Editorial:</span> ${libro['Editorial']}</p>
+                            <p><span class="etiqueta">Año de publicación:</span> ${libro['Año de publicación']}</p>
+                            <p><span class="etiqueta">ISBN:</span> ${libro['ISBN']}</p>
+                            <p><span class="etiqueta">Edición:</span> ${libro['Edición']}</p>
+                            <p><span class="etiqueta">Stock:</span> ${libro['Stock']}</p>
+                            <p><span class="etiqueta">Ubicación:</span> ${libro['Ubicación']}</p>
+                            <p><span class="etiqueta">Disponibilidad:</span> ${disponibilidadHtml}</p>
+                        </div>
+                        
+                        <div class="detalle-seccion">
+                            <h3>Descripción</h3>
+                            <p class="sinopsis">${libro['Sinopsis breve'] || 'No hay sinopsis disponible para este libro.'}</p>
+                        </div>
+                        
+                        ${caracteristicasHtml ? `
+                        <div class="detalle-seccion">
+                            <h3>Características destacadas</h3>
+                            ${caracteristicasHtml}
+                        </div>
+                        ` : ''}
+                        
+                        <div class="detalle-seccion">
+                            <h3>Detalles de desgaste</h3>
+                            <p>${libro['Detalles de desgaste'] || 'No se han especificado detalles de desgaste.'}</p>
+                        </div>
+                        
+                        <div class="detalle-seccion">
+                            <h3>Observaciones</h3>
+                            <p>${libro['Observaciones'] || 'No hay observaciones adicionales.'}</p>
+                        </div>
+                        
+                        <div class="detalle-seccion">
+                            <h3>Información física</h3>
+                            <p><span class="etiqueta">Peso:</span> ${libro['Peso']} gramos</p>
+                            <p><span class="etiqueta">Dimensiones:</span> ${libro['Dimensiones']}</p>
+                        </div>
+                        
+                        <div class="detalle-seccion">
+                            <h3>Información de inventario</h3>
+                            <p><span class="etiqueta">Precio de compra:</span> €${libro['Precio de compra']}</p>
+                            <p><span class="etiqueta">Descuento:</span> ${libro['Descuento']}%</p>
+                            <p><span class="etiqueta">Fecha de alta:</span> ${libro['Fecha de alta en inventario']}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Añadir funcionalidad para cambiar la imagen principal al hacer clic en las miniaturas
+            const miniaturas = document.querySelectorAll('.imagen-mini');
+            const imagenPrincipal = document.querySelector('.imagen-principal');
+            
+            miniaturas.forEach(miniatura => {
+                miniatura.addEventListener('click', function() {
+                    const imgSrc = this.querySelector('img').src;
+                    imagenPrincipal.innerHTML = `<img src="${imgSrc}" alt="${libro['Título']}">`;
+                });
+            });
+        }
+        
+        function mostrarError(mensaje) {
+            const detalleDiv = document.getElementById('detalle-libro');
+            detalleDiv.innerHTML = `<div class="loading">${mensaje}</div>`;
+        }
+    </script>
+</body>
+</html>
