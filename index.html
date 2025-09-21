@@ -1,479 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Libros</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #34495e;
-            --success-color: #2ecc71;
-            --warning-color: #f39c12;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f5f7fa;
-            color: var(--dark-color);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-        }
-        
-        .search-bar {
-            display: flex;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 8px 15px;
-            width: 300px;
-        }
-        
-        .search-bar input {
-            background: none;
-            border: none;
-            color: white;
-            outline: none;
-            width: 100%;
-            margin-left: 10px;
-        }
-        
-        .search-bar input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .search-bar i {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .filters {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            margin: 20px 0;
-        }
-        
-        .filters h3 {
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-        
-        .filter-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .filter-group {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .filter-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .filter-group select, .filter-group input {
-            width: 100%;
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .catalogo {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-        
-        .libro-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .libro-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-        }
-        
-        .libro-imagen {
-            height: 200px;
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        
-        .libro-imagen img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .libro-imagen i {
-            font-size: 48px;
-            color: #ccc;
-        }
-        
-        .libro-info {
-            padding: 20px;
-        }
-        
-        .libro-titulo {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--primary-color);
-            line-height: 1.3;
-            height: 48px;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-        }
-        
-        .libro-autor {
-            color: #666;
-            margin-bottom: 12px;
-            font-size: 14px;
-        }
-        
-        .libro-detalle {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 15px;
-        }
-        
-        .libro-precio {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-        
-        .libro-estado {
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-            text-transform: uppercase;
-        }
-        
-        .estado-nuevo {
-            background-color: rgba(46, 204, 113, 0.1);
-            color: var(--success-color);
-        }
-        
-        .estado-bueno {
-            background-color: rgba(52, 152, 219, 0.1);
-            color: var(--secondary-color);
-        }
-        
-        .estado-aceptable {
-            background-color: rgba(243, 156, 18, 0.1);
-            color: var(--warning-color);
-        }
-        
-        .estado-deteriorado {
-            background-color: rgba(231, 76, 60, 0.1);
-            color: var(--accent-color);
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 40px;
-            font-size: 18px;
-            color: #666;
-        }
-        
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 30px 0;
-            margin-top: 50px;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 20px;
-        }
-        
-        .footer-section h3 {
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 8px;
-        }
-        
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: white;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            margin-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .search-bar {
-                width: 100%;
-            }
-            
-            .catalogo {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 15px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Catálogo de Libros</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; }
+    h1 { text-align: center; }
+    .catalogo { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .libro { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+    .libro img { max-width: 100%; height: 200px; object-fit: cover; border-radius: 6px; }
+    .libro h3 { margin: 10px 0 5px; font-size: 16px; }
+    .libro p { margin: 5px 0; font-size: 14px; color: #555; }
+    .btn { display: inline-block; margin-top: 10px; padding: 8px 12px; background: #0077cc; color: white; border-radius: 5px; text-decoration: none; }
+    .btn:hover { background: #005fa3; }
+    .producto { max-width: 700px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .producto img { max-width: 200px; margin: 10px; border-radius: 6px; }
+    .imagenes { display: flex; flex-wrap: wrap; gap: 10px; }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">Mi Catálogo de Libros</div>
-                <div class="search-bar">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Buscar libros..." id="searchInput">
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <div class="container">
-        <div class="filters">
-            <h3>Filtros</h3>
-            <div class="filter-options">
-                <div class="filter-group">
-                    <label for="estadoFilter">Estado</label>
-                    <select id="estadoFilter">
-                        <option value="">Todos los estados</option>
-                        <option value="nuevo">Nuevo</option>
-                        <option value="muy bueno">Muy bueno</option>
-                        <option value="bueno">Bueno</option>
-                        <option value="aceptable">Aceptable</option>
-                        <option value="deteriorado">Deteriorado</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="editorialFilter">Editorial</label>
-                    <input type="text" id="editorialFilter" placeholder="Filtrar por editorial">
-                </div>
-                <div class="filter-group">
-                    <label for="precioMaxFilter">Precio máximo</label>
-                    <input type="number" id="precioMaxFilter" placeholder="€">
-                </div>
-            </div>
-        </div>
+<h1>Catálogo de Libros</h1>
+<div id="contenido"></div>
 
-        <div id="catalogo" class="catalogo">
-            <div class="loading">Cargando catálogo...</div>
-        </div>
+<script>
+const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTJn_PAdSHSPWifkBLr9h8MyhrQ8IK-c0XjoT-tlJoWm6TuLXLO5QD2vNoyXONLIKVsUSRcRWseS2yD/pub?output=csv"; // <-- pon aquí tu enlace
+
+async function cargarDatos() {
+  const res = await fetch(sheetUrl);
+  const texto = await res.text();
+  const filas = texto.split("\n").map(f => f.split(","));
+  const headers = filas[0];
+  const datos = filas.slice(1).map(fila => {
+    let obj = {};
+    headers.forEach((h,i) => obj[h.trim()] = fila[i] || "");
+    return obj;
+  });
+  return datos;
+}
+
+function getQuery(param) {
+  return new URLSearchParams(window.location.search).get(param);
+}
+
+function mostrarCatalogo(libros) {
+  const cont = document.getElementById("contenido");
+  cont.className = "catalogo";
+  cont.innerHTML = "";
+  libros.forEach(l => {
+    const div = document.createElement("div");
+    div.className = "libro";
+    div.innerHTML = `
+      <img src="${l['Foto 1'] || ''}" alt="Portada">
+      <h3>${l['Título']}</h3>
+      <p>${l['Autor']}</p>
+      <a class="btn" href="?isbn=${l['ISBN']}">Ver más</a>
+    `;
+    cont.appendChild(div);
+  });
+}
+
+function mostrarProducto(libro) {
+  const cont = document.getElementById("contenido");
+  cont.className = "producto";
+  cont.innerHTML = `
+    <h2>${libro['Título']}</h2>
+    <p><b>Autor:</b> ${libro['Autor']}</p>
+    <p><b>Editorial:</b> ${libro['Editorial']}</p>
+    <p><b>Año:</b> ${libro['Año de publicación']}</p>
+    <p><b>Estado:</b> ${libro['Estado general']}</p>
+    <p><b>Precio:</b> ${libro['Precio de venta']} €</p>
+    <p><b>Sinopsis:</b> ${libro['Sinopsis breve']}</p>
+    <div class="imagenes">
+      <img src="${libro['Foto 1']}" alt="">
+      <img src="${libro['Foto 2']}" alt="">
+      <img src="${libro['Foto 3']}" alt="">
     </div>
+    <a class="btn" href="${libro['y']}" target="_blank">Comprar en Wallapop</a>
+    <br><br>
+    <a href="index.html">Volver al catálogo</a>
+  `;
+}
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Sobre nosotros</h3>
-                    <p>Catálogo de libros especializado en ediciones únicas y raros. Nuestra misión es conectar a los lectores con obras especiales.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Enlaces rápidos</h3>
-                    <ul>
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Catálogo</a></li>
-                        <li><a href="#">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> info@mi-catalogo.com</li>
-                        <li><i class="fas fa-phone"></i> +34 900 123 456</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Madrid, España</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2023 Mi Catálogo de Libros. Todos los derechos reservados.
-            </div>
-        </div>
-    </footer>
+cargarDatos().then(libros => {
+  const isbn = getQuery("isbn");
+  if (isbn) {
+    const libro = libros.find(l => l["ISBN"] === isbn);
+    if (libro) mostrarProducto(libro);
+    else document.getElementById("contenido").innerHTML = "Libro no encontrado";
+  } else {
+    mostrarCatalogo(libros);
+  }
+});
+</script>
 
-    <script>
-        // Reemplaza esta URL con la de tu aplicación web de Apps Script
-        const API_URL = "https://script.google.com/macros/s/AKfycbzK4s65S7Vz3Dsis8AY3_ooHwuXCo--JZI1qxAC0-RJZ4yXwKbh1Wp-CRC1fMClWRk0/exec";
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            cargarCatalogo();
-            
-            // Event listeners para filtros
-            document.getElementById('searchInput').addEventListener('input', aplicarFiltros);
-            document.getElementById('estadoFilter').addEventListener('change', aplicarFiltros);
-            document.getElementById('editorialFilter').addEventListener('input', aplicarFiltros);
-            document.getElementById('precioMaxFilter').addEventListener('input', aplicarFiltros);
-        });
-        
-        let librosData = [];
-        
-        function cargarCatalogo() {
-            fetch(`${API_URL}/libros`)
-                .then(response => response.json())
-                .then(data => {
-                    librosData = data;
-                    mostrarCatalogo(librosData);
-                })
-                .catch(error => {
-                    console.error('Error al cargar el catálogo:', error);
-                    document.getElementById('catalogo').innerHTML = '<div class="loading">Error al cargar el catálogo. Inténtalo de nuevo más tarde.</div>';
-                });
-        }
-        
-        function mostrarCatalogo(libros) {
-            const catalogoDiv = document.getElementById('catalogo');
-            catalogoDiv.innerHTML = '';
-            
-            if (libros.length === 0) {
-                catalogoDiv.innerHTML = '<div class="loading">No se encontraron libros con los filtros seleccionados.</div>';
-                return;
-            }
-            
-            libros.forEach(libro => {
-                const libroCard = document.createElement('div');
-                libroCard.className = 'libro-card';
-                libroCard.onclick = () => verDetalle(libro.id);
-                
-                // Determinar clase CSS para el estado
-                let estadoClass = 'estado-bueno'; // por defecto
-                const estadoLower = libro.estado.toLowerCase();
-                
-                if (estadoLower.includes('nuevo')) estadoClass = 'estado-nuevo';
-                else if (estadoLower.includes('muy bueno')) estadoClass = 'estado-bueno';
-                else if (estadoLower.includes('bueno')) estadoClass = 'estado-bueno';
-                else if (estadoLower.includes('aceptable')) estadoClass = 'estado-aceptable';
-                else if (estadoLower.includes('deteriorado')) estadoClass = 'estado-deteriorado';
-                
-                // Manejar la imagen
-                let imagenHtml = '';
-                if (libro.foto1 && libro.foto1.trim() !== '') {
-                    imagenHtml = `<img src="${libro.foto1}" alt="${libro.titulo}">`;
-                } else {
-                    imagenHtml = '<i class="fas fa-book"></i>';
-                }
-                
-                libroCard.innerHTML = `
-                    <div class="libro-imagen">
-                        ${imagenHtml}
-                    </div>
-                    <div class="libro-info">
-                        <div class="libro-titulo">${libro.titulo}</div>
-                        <div class="libro-autor">${libro.autor}</div>
-                        <div class="libro-detalle">
-                            <div class="libro-precio">€${libro.precioVenta}</div>
-                            <div class="libro-estado ${estadoClass}">${libro.estado}</div>
-                        </div>
-                    </div>
-                `;
-                
-                catalogoDiv.appendChild(libroCard);
-            });
-        }
-        
-        function verDetalle(id) {
-            window.location.href = `detalle.html?id=${id}`;
-        }
-        
-        function aplicarFiltros() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const estadoFilter = document.getElementById('estadoFilter').value.toLowerCase();
-            const editorialFilter = document.getElementById('editorialFilter').value.toLowerCase();
-            const precioMaxFilter = parseFloat(document.getElementById('precioMaxFilter').value) || Infinity;
-            
-            const librosFiltrados = librosData.filter(libro => {
-                const matchSearch = libro.titulo.toLowerCase().includes(searchTerm) || 
-                                   libro.autor.toLowerCase().includes(searchTerm);
-                const matchEstado = !estadoFilter || libro.estado.toLowerCase().includes(estadoFilter);
-                const matchEditorial = !editorialFilter || libro.editorial.toLowerCase().includes(editorialFilter);
-                const matchPrecio = parseFloat(libro.precioVenta) <= precioMaxFilter;
-                
-                return matchSearch && matchEstado && matchEditorial && matchPrecio;
-            });
-            
-            mostrarCatalogo(librosFiltrados);
-        }
-    </script>
 </body>
 </html>
