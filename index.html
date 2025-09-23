@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Releo - Librería de Segunda Mano</title>
+    <meta name="description" content="Encuentra libros de segunda mano de calidad en Releo. Damos nueva vida a las historias.">
+    <meta name="keywords" content="libros segunda mano, comprar libros usados, librería online, libros baratos, vender libros usados">
+    
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/logo.webp" alt="Releo Logo">
+                </a>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="catalog/index.html">Catálogo</a></li>
+                        <li><a href="about/index.html">Quiénes somos</a></li>
+                        <li><a href="how-it-works/index.html">Cómo funciona</a></li>
+                        <li><a href="blog/index.html">Blog</a></li>
+                        <li><a href="contact/index.html">Contacto</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <button class="search-toggle" aria-label="Abrir buscador">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="user-menu-toggle" aria-label="Menú de usuario">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Buscador expandido -->
+        <div class="search-expanded">
+            <div class="container">
+                <form class="search-form">
+                    <input type="text" placeholder="Buscar libros, autores, géneros...">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Encuentra libros de segunda mano con Releo</h1>
+                <p>Damos nueva vida a las historias, conectando lectores con tesoros literarios a precios accesibles.</p>
+                <a href="contact/index.html" class="btn btn-primary btn-large">
+                    Contacta con nosotros
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Destacados Section -->
+    <section class="featured-books">
+        <div class="container">
+            <div class="section-header">
+                <h2>Libros destacados</h2>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="novels">Novelas</button>
+                    <button class="filter-btn" data-filter="non-fiction">No ficción</button>
+                    <button class="filter-btn" data-filter="children">Infantiles</button>
+                </div>
+            </div>
+            
+            <div class="books-grid">
+                <!-- Libro 1 -->
+                <div class="book-card" data-category="novels">
+                    <div class="book-image">
+                        <img src="assets/img/libros/libro1.webp" alt="Título del libro">
+                        <div class="book-actions">
+                            <button class="save-book" aria-label="Guardar libro">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Cien años de soledad</h3>
+                        <p class="author">Gabriel García Márquez</p>
+                        <p class="price">12,50 €</p>
+                        <a href="contact/index.html" class="btn btn-secondary">
+                            Quiero este libro
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Libro 2 -->
+                <div class="book-card" data-category="non-fiction">
+                    <div class="book-image">
+                        <img src="assets/img/libros/libro2.webp" alt="Título del libro">
+                        <div class="book-actions">
+                            <button class="save-book" aria-label="Guardar libro">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Sapiens</h3>
+                        <p class="author">Yuval Noah Harari</p>
+                        <p class="price">14,00 €</p>
+                        <a href="contact/index.html" class="btn btn-secondary">
+                            Quiero este libro
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Libro 3 -->
+                <div class="book-card" data-category="children">
+                    <div class="book-image">
+                        <img src="assets/img/libros/libro3.webp" alt="Título del libro">
+                        <div class="book-actions">
+                            <button class="save-book" aria-label="Guardar libro">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>El principito</h3>
+                        <p class="author">Antoine de Saint-Exupéry</p>
+                        <p class="price">8,50 €</p>
+                        <a href="contact/index.html" class="btn btn-secondary">
+                            Quiero este libro
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Libro 4 -->
+                <div class="book-card" data-category="novels">
+                    <div class="book-image">
+                        <img src="assets/img/libros/libro4.webp" alt="Título del libro">
+                        <div class="book-actions">
+                            <button class="save-book" aria-label="Guardar libro">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>1984</h3>
+                        <p class="author">George Orwell</p>
+                        <p class="price">10,00 €</p>
+                        <a href="contact/index.html" class="btn btn-secondary">
+                            Quiero este libro
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="catalog/index.html" class="btn btn-outline">
+                    Ver catálogo completo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo funciona Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cómo funciona Releo</h2>
+                <p>Un proceso sencillo para dar nueva vida a los libros</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-donate"></i>
+                    </div>
+                    <h3>Recogemos</h3>
+                    <p>Recibimos donaciones de libros en buen estado de particulares y bibliotecas.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Seleccionamos</h3>
+                    <p>Nuestro equipo revisa cada libro para garantizar su calidad y buen estado.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Ofrecemos</h3>
+                    <p>Ponemos a disposición de los lectores estos tesoros literarios a precios accesibles.</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="how-it-works/index.html" class="btn btn-primary">
+                    Conoce más sobre nuestro proceso
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Lo que dicen nuestros lectores</h2>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Libro muy bien empaquetado, envío super rápido, muy recomendable!!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/img/testimonials/persona1.webp" alt="Cliente">
+                        <div>
+                            <h4>Se Vende M.</h4>
+                            <p>Lectora habitual</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"todo Perfecto y Rapido"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/img/testimonials/persona2.webp" alt="Cliente">
+                        <div>
+                            <h4>Luis S.</h4>
+                            <p>Lector habitual</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Todo perfecto"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/img/testimonials/persona3.webp" alt="Cliente">
+                        <div>
+                            <h4>Antonio M.</h4>
+                            <p>Amante de los libros</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Del blog de Releo</h2>
+                <p>Consejos, novedades y reflexiones sobre el mundo de los libros</p>
+            </div>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/img/blog/articulo-1.jpg" alt="Artículo del blog">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="date">15 de mayo, 2023</span>
+                            <span class="category">Lectura</span>
+                        </div>
+                        <h3>5 beneficios de leer libros de segunda mano</h3>
+                        <p>Descubre por qué cada vez más personas optan por libros usados y cómo contribuyes al medio ambiente.</p>
+                        <a href="blog/articulo-1.html" class="read-more">
+                            Leer más <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/img/blog/articulo-2.jpg" alt="Artículo del blog">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="date">3 de junio, 2023</span>
+                            <span class="category">Recomendaciones</span>
+                        </div>
+                        <h3>Clásicos de la literatura que debes releer</h3>
+                        <p>Algunas obras maestras ganan nuevo significado con cada lectura. Te recomendamos cuáles volver a descubrir.</p>
+                        <a href="blog/articulo-2.html" class="read-more">
+                            Leer más <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/img/blog/articulo-3.jpg" alt="Artículo del blog">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="date">20 de junio, 2023</span>
+                            <span class="category">Sostenibilidad</span>
+                        </div>
+                        <h3>Cómo cuidar tus libros para que duren generaciones</h3>
+                        <p>Consejos prácticos para mantener tus libros en perfecto estado y preservar su valor con el tiempo.</p>
+                        <a href="blog/articulo-3.html" class="read-more">
+                            Leer más <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center">
+                <a href="blog/index.html" class="btn btn-outline">
+                    Ver todos los artículos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Tienes libros que ya no lees?</h2>
+                <p>Dales una segunda vida y colabora con nuestro proyecto de fomento de la lectura.</p>
+                <a href="contact/index.html" class="btn btn-primary btn-large">
+                    Contacta con nosotros
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="assets/img/logo-white.png" alt="Releo Logo" class="footer-logo">
+                    <p>Releo nace con la misión de dar nueva vida a los libros, fomentando la lectura sostenible y accesible para todos.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61579012004628" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/releo_esp/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/Releo_esp" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="catalog/index.html">Catálogo</a></li>
+                        <li><a href="about/index.html">Quiénes somos</a></li>
+                        <li><a href="how-it-works/index.html">Cómo funciona</a></li>
+                        <li><a href="blog/index.html">Blog</a></li>
+                        <li><a href="contact/index.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Calle Literatura 123, Madrid</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+34 623 125 636</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>releobusines@gmail.com</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="whatsapp-contact">
+                        <a href="https://wa.me/34623125636" class="btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h3>Suscríbete a nuestro boletín</h3>
+                    <p>Recibe las últimas novedades y ofertas especiales.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn btn-primary">
+                            Suscribirse
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Releo - Librería de Segunda Mano. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Aviso legal</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Política de cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <div class="floating-btn whatsapp-float">
+        <a href="https://wa.me/34623125636" aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Botón flotante para volver arriba -->
+    <div class="floating-btn back-to-top">
+        <a href="#" aria-label="Volver arriba">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <!-- Notificación Toast -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="toast-message">Libro guardado correctamente</span>
+        </div>
+        <button class="toast-close" aria-label="Cerrar notificación">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

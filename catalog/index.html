@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Releo</title>
+    <meta name="description" content="Explora nuestro catálogo de libros de segunda mano. Encuentra tu próxima lectura.">
+    
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/catalog.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <img src="../assets/img/logo.webp" alt="Releo Logo">
+                </a>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="index.html" class="active">Catálogo</a></li>
+                        <li><a href="../about/index.html">Quiénes somos</a></li>
+                        <li><a href="../how-it-works/index.html">Cómo funciona</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../contact/index.html">Contacto</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <button class="search-toggle" aria-label="Abrir buscador">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="user-menu-toggle" aria-label="Menú de usuario">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Catálogo de Libros</h1>
+            <p>Descubre nuestra selección de libros de segunda mano</p>
+        </div>
+    </section>
+
+    <!-- Catalog Content -->
+    <section class="catalog-content">
+        <div class="container">
+            <div class="catalog-controls">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Buscar por título, autor...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="filters">
+                    <select id="category-filter">
+                        <option value="all">Todas las categorías</option>
+                        <option value="novels">Novelas</option>
+                        <option value="non-fiction">No ficción</option>
+                        <option value="children">Infantiles</option>
+                        <option value="comics">Cómics</option>
+                        <option value="university">Universitarios</option>
+                    </select>
+                    
+                    <select id="sort-filter">
+                        <option value="default">Ordenar por</option>
+                        <option value="title-asc">Título (A-Z)</option>
+                        <option value="title-desc">Título (Z-A)</option>
+                        <option value="price-asc">Precio (menor a mayor)</option>
+                        <option value="price-desc">Precio (mayor a menor)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="books-grid" id="books-container">
+                <!-- Los libros se cargarán dinámicamente aquí -->
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Cargando libros...</p>
+                </div>
+            </div>
+            
+            <div class="pagination" id="pagination">
+                <!-- La paginación se generará dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="../assets/img/logo-white.png" alt="Releo Logo" class="footer-logo">
+                    <p>Releo nace con la misión de dar nueva vida a los libros, fomentando la lectura sostenible y accesible para todos.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="index.html">Catálogo</a></li>
+                        <li><a href="../about/index.html">Quiénes somos</a></li>
+                        <li><a href="../how-it-works/index.html">Cómo funciona</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../contact/index.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Calle Literatura 123, Madrid</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+34 623 125 636</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>releobusines@gmail.com</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="whatsapp-contact">
+                        <a href="https://wa.me/34600123456" class="btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h3>Suscríbete a nuestro boletín</h3>
+                    <p>Recibe las últimas novedades y ofertas especiales.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn btn-primary">
+                            Suscribirse
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Releo - Librería de Segunda Mano. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Aviso legal</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Política de cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <div class="floating-btn whatsapp-float">
+        <a href="https://wa.me/34600123456" aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Botón flotante para volver arriba -->
+    <div class="floating-btn back-to-top">
+        <a href="#" aria-label="Volver arriba">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <!-- Notificación Toast -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="toast-message">Libro guardado correctamente</span>
+        </div>
+        <button class="toast-close" aria-label="Cerrar notificación">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <script>
+        // Variables globales
+        let allBooks = [];
+        let currentPage = 1;
+        const booksPerPage = 12;
+        
+        // URL del Google Sheet publicado
+        const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTJn_PAdSHSPWifkBLr9h8MyhrQ8IK-c0XjoT-tlJoWm6TuLXLO5QD2vNoyXONLIKVsUSRcRWseS2yD/pub?output=csv';
+        
+        // Función para parsear CSV
+        function parseCSV(csvText) {
+            const lines = csvText.split('\n');
+            const result = [];
+            const headers = lines[0].split(',').map(header => header.trim().replace(/"/g, ''));
+            
+            for (let i = 1; i < lines.length; i++) {
+                const obj = {};
+                const currentline = lines[i].split(',').map(field => field.trim().replace(/"/g, ''));
+                
+                for (let j = 0; j < headers.length; j++) {
+                    obj[headers[j]] = currentline[j];
+                }
+                
+                result.push(obj);
+            }
+            
+            return result;
+        }
+        
+        // Función para cargar libros desde Google Sheets
+        async function loadBooksFromGoogleSheets() {
+            try {
+                const response = await fetch(sheetUrl);
+                if (!response.ok) {
+                    throw new Error('Error al cargar los datos');
+                }
+                const csvData = await response.text();
+                allBooks = parseCSV(csvData);
+                displayBooks(getBooksForCurrentPage());
+                createPagination(allBooks.length);
+            } catch (error) {
+                console.error('Error al cargar libros:', error);
+                showErrorMessage('No se pudieron cargar los libros. Inténtalo más tarde.');
+            }
+        }
+        
+        // Función para obtener libros para la página actual
+        function getBooksForCurrentPage() {
+            const startIndex = (currentPage - 1) * booksPerPage;
+            const endIndex = startIndex + booksPerPage;
+            return allBooks.slice(startIndex, endIndex);
+        }
+        
+        // Función para mostrar los libros en el grid
+        function displayBooks(books) {
+            const container = document.getElementById('books-container');
+            container.innerHTML = '';
+            
+            if (books.length === 0) {
+                container.innerHTML = '<div class="no-results"><p>No se encontraron libros que coincidan con tu búsqueda.</p></div>';
+                return;
+            }
+            
+            books.forEach(book => {
+                const bookCard = createBookCard(book);
+                container.appendChild(bookCard);
+            });
+        }
+        
+        // Función para crear una tarjeta de libro
+        function createBookCard(book) {
+            const card = document.createElement('div');
+            card.className = 'book-card';
+            
+            // Determinar la clase de estado según el valor del libro
+            let statusClass = 'status-available';
+            let statusText = 'Disponible';
+            
+            if (book.status && book.status.toLowerCase() === 'reserved') {
+                statusClass = 'status-reserved';
+                statusText = 'Reservado';
+            } else if (book.status && book.status.toLowerCase() === 'sold') {
+                statusClass = 'status-sold';
+                statusText = 'Vendido';
+            }
+            
+            card.innerHTML = `
+                <div class="book-image">
+                    <img src="${book.image_url || '../assets/img/book-placeholder.webp'}" alt="${book.title}">
+                    <div class="book-status ${statusClass}">${statusText}</div>
+                    <div class="book-actions">
+                        <button class="save-book ${isBookSaved(book.id) ? 'saved' : ''}" data-id="${book.id}" aria-label="Guardar libro">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="book-info">
+                    <h3>${book.title}</h3>
+                    <p class="author">${book.author}</p>
+                    <p class="price">${book.price} €</p>
+                    <a href="book.html?id=${book.id}" class="btn btn-primary">Ver detalles</a>
+                </div>
+            `;
+            
+            // Añadir microinteracciones
+            card.querySelector('.save-book').addEventListener('click', toggleSaveBook);
+            
+            return card;
+        }
+        
+        // Función para crear la paginación
+        function createPagination(totalBooks) {
+            const totalPages = Math.ceil(totalBooks / booksPerPage);
+            const paginationContainer = document.getElementById('pagination');
+            paginationContainer.innerHTML = '';
+            
+            if (totalPages <= 1) return;
+            
+            // Botón anterior
+            const prevBtn = document.createElement('button');
+            prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    displayBooks(getBooksForCurrentPage());
+                    createPagination(totalBooks);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+            paginationContainer.appendChild(prevBtn);
+            
+            // Números de página
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.textContent = i;
+                pageBtn.className = i === currentPage ? 'active' : '';
+                pageBtn.addEventListener('click', () => {
+                    currentPage = i;
+                    displayBooks(getBooksForCurrentPage());
+                    createPagination(totalBooks);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+                paginationContainer.appendChild(pageBtn);
+            }
+            
+            // Botón siguiente
+            const nextBtn = document.createElement('button');
+            nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    displayBooks(getBooksForCurrentPage());
+                    createPagination(totalBooks);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+            paginationContainer.appendChild(nextBtn);
+        }
+        
+        // Función para filtrar libros
+        function filterBooks() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const categoryFilter = document.getElementById('category-filter').value;
+            const sortFilter = document.getElementById('sort-filter').value;
+            
+            let filteredBooks = allBooks.filter(book => {
+                const matchesSearch = book.title && book.title.toLowerCase().includes(searchTerm) || 
+                                     (book.author && book.author.toLowerCase().includes(searchTerm));
+                const matchesCategory = categoryFilter === 'all' || book.category === categoryFilter;
+                
+                return matchesSearch && matchesCategory;
+            });
+            
+            // Ordenar libros según el filtro seleccionado
+            if (sortFilter === 'title-asc') {
+                filteredBooks.sort((a, b) => a.title.localeCompare(b.title));
+            } else if (sortFilter === 'title-desc') {
+                filteredBooks.sort((a, b) => b.title.localeCompare(a.title));
+            } else if (sortFilter === 'price-asc') {
+                filteredBooks.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+            } else if (sortFilter === 'price-desc') {
+                filteredBooks.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+            }
+            
+            // Resetear paginación
+            currentPage = 1;
+            displayBooks(filteredBooks.slice(0, booksPerPage));
+            createPagination(filteredBooks.length);
+        }
+        
+        // Función para guardar/eliminar libros
+        function toggleSaveBook(event) {
+            const bookId = event.currentTarget.dataset.id;
+            const savedBooks = JSON.parse(localStorage.getItem('savedBooks') || '[]');
+            
+            if (savedBooks.includes(bookId)) {
+                // Eliminar de guardados
+                const index = savedBooks.indexOf(bookId);
+                savedBooks.splice(index, 1);
+                showToast('Libro eliminado de guardados');
+            } else {
+                // Añadir a guardados
+                savedBooks.push(bookId);
+                showToast('Libro guardado correctamente');
+            }
+            
+            // Actualizar localStorage
+            localStorage.setItem('savedBooks', JSON.stringify(savedBooks));
+            
+            // Actualizar UI
+            event.currentTarget.classList.toggle('saved');
+        }
+        
+        // Función para verificar si un libro está guardado
+        function isBookSaved(bookId) {
+            const savedBooks = JSON.parse(localStorage.getItem('savedBooks') || '[]');
+            return savedBooks.includes(bookId);
+        }
+        
+        // Función para mostrar notificaciones toast
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            
+            // Cambiar el icono según el tipo
+            const icon = toast.querySelector('.toast-content i');
+            icon.className = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
+            icon.style.color = type === 'success' ? 'var(--secondary-color)' : 'var(--accent-color)';
+            
+            // Mostrar el toast
+            toast.classList.add('show');
+            
+            // Ocultar después de 3 segundos
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Función para mostrar mensaje de error
+        function showErrorMessage(message) {
+            showToast(message, 'error');
+        }
+        
+        // Event listeners para filtros
+        document.getElementById('search-input').addEventListener('input', filterBooks);
+        document.getElementById('category-filter').addEventListener('change', filterBooks);
+        document.getElementById('sort-filter').addEventListener('change', filterBooks);
+        
+        // Event listener para cerrar el toast
+        document.querySelector('.toast-close').addEventListener('click', () => {
+            document.getElementById('toast').classList.remove('show');
+        });
+        
+        // Event listener para el botón de volver arriba
+        document.querySelector('.back-to-top').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Event listener para mostrar/ocultar el botón de volver arriba
+        window.addEventListener('scroll', () => {
+            const backToTopBtn = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // Cargar libros al iniciar la página
+        document.addEventListener('DOMContentLoaded', loadBooksFromGoogleSheets);
+    </script>
+</body>
+</html>

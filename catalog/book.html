@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Libro - Releo</title>
+    <meta name="description" content="Información detallada del libro seleccionado">
+    
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/book-detail.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <img src="../assets/img/logo.webp" alt="Releo Logo">
+                </a>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="index.html">Catálogo</a></li>
+                        <li><a href="../about/index.html">Quiénes somos</a></li>
+                        <li><a href="../how-it-works/index.html">Cómo funciona</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../contact/index.html">Contacto</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <button class="search-toggle" aria-label="Abrir buscador">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="user-menu-toggle" aria-label="Menú de usuario">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Detalle del Libro</h1>
+            <p>Información detallada del libro seleccionado</p>
+        </div>
+    </section>
+
+    <!-- Book Detail Content -->
+    <section class="book-detail-content">
+        <div class="container">
+            <div class="book-detail-container" id="book-detail-container">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Cargando información del libro...</p>
+                </div>
+            </div>
+            
+            <div class="related-books">
+                <h2>Libros relacionados</h2>
+                <div class="related-books-grid" id="related-books-container">
+                    <!-- Los libros relacionados se cargarán dinámicamente aquí -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <img src="../assets/img/logo-white.png" alt="Releo Logo" class="footer-logo">
+                    <p>Releo nace con la misión de dar nueva vida a los libros, fomentando la lectura sostenible y accesible para todos.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="index.html">Catálogo</a></li>
+                        <li><a href="../about/index.html">Quiénes somos</a></li>
+                        <li><a href="../how-it-works/index.html">Cómo funciona</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../contact/index.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Calle Literatura 123, Madrid</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+34 623 125 636</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>releobusines@gmail.com</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="whatsapp-contact">
+                        <a href="https://wa.me/34600123456" class="btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h3>Suscríbete a nuestro boletín</h3>
+                    <p>Recibe las últimas novedades y ofertas especiales.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn btn-primary">
+                            Suscribirse
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Releo - Librería de Segunda Mano. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Aviso legal</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Política de cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <div class="floating-btn whatsapp-float">
+        <a href="https://wa.me/34600123456" aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Botón flotante para volver arriba -->
+    <div class="floating-btn back-to-top">
+        <a href="#" aria-label="Volver arriba">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <!-- Notificación Toast -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="toast-message">Libro guardado correctamente</span>
+        </div>
+        <button class="toast-close" aria-label="Cerrar notificación">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <script>
+        // URL del Google Sheet publicado
+        const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTJn_PAdSHSPWifkBLr9h8MyhrQ8IK-c0XjoT-tlJoWm6TuLXLO5QD2vNoyXONLIKVsUSRcRWseS2yD/pub?output=csv';
+        
+        // Función para parsear CSV
+        function parseCSV(csvText) {
+            const lines = csvText.split('\n');
+            const result = [];
+            const headers = lines[0].split(',').map(header => header.trim().replace(/"/g, ''));
+            
+            for (let i = 1; i < lines.length; i++) {
+                const obj = {};
+                const currentline = lines[i].split(',').map(field => field.trim().replace(/"/g, ''));
+                
+                for (let j = 0; j < headers.length; j++) {
+                    obj[headers[j]] = currentline[j];
+                }
+                
+                result.push(obj);
+            }
+            
+            return result;
+        }
+        
+        // Función para cargar el detalle del libro
+        async function loadBookDetail() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookId = urlParams.get('id');
+            
+            if (!bookId) {
+                showErrorMessage('No se especificó un libro');
+                return;
+            }
+            
+            try {
+                const response = await fetch(sheetUrl);
+                if (!response.ok) {
+                    throw new Error('Error al cargar los datos');
+                }
+                const csvData = await response.text();
+                const books = parseCSV(csvData);
+                
+                const book = books.find(b => b.id === bookId);
+                
+                if (!book) {
+                    showErrorMessage('Libro no encontrado');
+                    return;
+                }
+                
+                displayBookDetail(book);
+                loadRelatedBooks(books, book);
+            } catch (error) {
+                console.error('Error al cargar el libro:', error);
+                showErrorMessage('No se pudo cargar el libro. Inténtalo más tarde.');
+            }
+        }
+        
+        // Función para mostrar el detalle del libro
+        function displayBookDetail(book) {
+            const container = document.getElementById('book-detail-container');
+            
+            // Determinar la clase de estado según el valor del libro
+            let statusClass = 'status-available';
+            let statusText = 'Disponible';
+            
+            if (book.status && book.status.toLowerCase() === 'reserved') {
+                statusClass = 'status-reserved';
+                statusText = 'Reservado';
+            } else if (book.status && book.status.toLowerCase() === 'sold') {
+                statusClass = 'status-sold';
+                statusText = 'Vendido';
+            }
+            
+            container.innerHTML = `
+                <div class="book-detail">
+                    <div class="book-image-container">
+                        <img src="${book.image_url || '../assets/img/book-placeholder.webp'}" alt="${book.title}" class="book-image">
+                        <div class="book-status ${statusClass}">${statusText}</div>
+                    </div>
+                    <div class="book-info">
+                        <h1>${book.title}</h1>
+                        <div class="book-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-user"></i>
+                                <span>${book.author}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-tag"></i>
+                                <span>${book.category || 'General'}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-star"></i>
+                                <span>${book.rating || '4.5'}/5</span>
+                            </div>
+                        </div>
+                        <div class="book-price">${book.price} €</div>
+                        <div class="book-description">
+                            <h3>Descripción</h3>
+                            <p>${book.description || 'No hay descripción disponible para este libro.'}</p>
+                        </div>
+                        <div class="book-actions">
+                            <button class="btn btn-primary ${isBookSaved(book.id) ? 'saved' : ''}" id="save-book-btn" data-id="${book.id}">
+                                <i class="fas fa-heart"></i> ${isBookSaved(book.id) ? 'Guardado' : 'Guardar'}
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-shopping-cart"></i> Añadir al carrito
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-share-alt"></i> Compartir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Añadir microinteracciones
+            document.getElementById('save-book-btn').addEventListener('click', toggleSaveBook);
+            
+            // Añadir evento al botón de compartir
+            document.querySelector('.btn-outline').addEventListener('click', () => {
+                if (navigator.share) {
+                    navigator.share({
+                        title: book.title,
+                        text: `Echa un vistazo a este libro: ${book.title} de ${book.author}`,
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback para navegadores que no soportan Web Share API
+                    const url = window.location.href;
+                    navigator.clipboard.writeText(url);
+                    showToast('Enlace copiado al portapapeles');
+                }
+            });
+            
+            // Añadir evento al botón de añadir al carrito
+            document.querySelector('.btn-secondary').addEventListener('click', () => {
+                showToast('Libro añadido al carrito');
+            });
+        }
+        
+        // Función para cargar libros relacionados
+        function loadRelatedBooks(allBooks, currentBook) {
+            const relatedBooks = allBooks
+                .filter(book => book.category === currentBook.category && book.id !== currentBook.id)
+                .slice(0, 4); // Mostrar máximo 4 libros relacionados
+            
+            const container = document.getElementById('related-books-container');
+            container.innerHTML = '';
+            
+            if (relatedBooks.length === 0) {
+                container.innerHTML = '<p>No hay libros relacionados disponibles.</p>';
+                return;
+            }
+            
+            relatedBooks.forEach(book => {
+                const bookCard = createRelatedBookCard(book);
+                container.appendChild(bookCard);
+            });
+        }
+        
+        // Función para crear una tarjeta de libro relacionado
+        function createRelatedBookCard(book) {
+            const card = document.createElement('div');
+            card.className = 'related-book-card';
+            
+            // Determinar la clase de estado según el valor del libro
+            let statusClass = 'status-available';
+            let statusText = 'Disponible';
+            
+            if (book.status && book.status.toLowerCase() === 'reserved') {
+                statusClass = 'status-reserved';
+                statusText = 'Reservado';
+            } else if (book.status && book.status.toLowerCase() === 'sold') {
+                statusClass = 'status-sold';
+                statusText = 'Vendido';
+            }
+            
+            card.innerHTML = `
+                <div class="related-book-image">
+                    <img src="${book.image_url || '../assets/img/book-placeholder.webp'}" alt="${book.title}">
+                    <div class="book-status ${statusClass}">${statusText}</div>
+                </div>
+                <div class="related-book-info">
+                    <h4>${book.title}</h4>
+                    <p class="author">${book.author}</p>
+                    <p class="price">${book.price} €</p>
+                    <a href="book.html?id=${book.id}" class="btn btn-primary btn-sm">Ver detalles</a>
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        // Función para guardar/eliminar libros
+        function toggleSaveBook(event) {
+            const bookId = event.currentTarget.dataset.id;
+            const savedBooks = JSON.parse(localStorage.getItem('savedBooks') || '[]');
+            
+            if (savedBooks.includes(bookId)) {
+                // Eliminar de guardados
+                const index = savedBooks.indexOf(bookId);
+                savedBooks.splice(index, 1);
+                showToast('Libro eliminado de guardados');
+            } else {
+                // Añadir a guardados
+                savedBooks.push(bookId);
+                showToast('Libro guardado correctamente');
+            }
+            
+            // Actualizar localStorage
+            localStorage.setItem('savedBooks', JSON.stringify(savedBooks));
+            
+            // Actualizar UI
+            event.currentTarget.classList.toggle('saved');
+            
+            // Actualizar texto si es el botón de detalle
+            if (event.currentTarget.id === 'save-book-btn') {
+                const isSaved = savedBooks.includes(bookId);
+                event.currentTarget.innerHTML = `<i class="fas fa-heart"></i> ${isSaved ? 'Guardado' : 'Guardar'}`;
+            }
+        }
+        
+        // Función para verificar si un libro está guardado
+        function isBookSaved(bookId) {
+            const savedBooks = JSON.parse(localStorage.getItem('savedBooks') || '[]');
+            return savedBooks.includes(bookId);
+        }
+        
+        // Función para mostrar notificaciones toast
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            
+            // Cambiar el icono según el tipo
+            const icon = toast.querySelector('.toast-content i');
+            icon.className = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
+            icon.style.color = type === 'success' ? 'var(--secondary-color)' : 'var(--accent-color)';
+            
+            // Mostrar el toast
+            toast.classList.add('show');
+            
+            // Ocultar después de 3 segundos
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Función para mostrar mensaje de error
+        function showErrorMessage(message) {
+            showToast(message, 'error');
+        }
+        
+        // Event listener para cerrar el toast
+        document.querySelector('.toast-close').addEventListener('click', () => {
+            document.getElementById('toast').classList.remove('show');
+        });
+        
+        // Event listener para el botón de volver arriba
+        document.querySelector('.back-to-top').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Event listener para mostrar/ocultar el botón de volver arriba
+        window.addEventListener('scroll', () => {
+            const backToTopBtn = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // Cargar el detalle del libro al iniciar la página
+        document.addEventListener('DOMContentLoaded', loadBookDetail);
+    </script>
+</body>
+</html>
